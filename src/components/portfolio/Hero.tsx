@@ -60,6 +60,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
+          className="min-w-0"
         >
           <div className="inline-flex items-center gap-2 rounded-full glass px-3 py-1.5 text-xs font-medium text-muted-foreground">
             <span className="relative flex h-2 w-2">
@@ -70,7 +71,7 @@ export function Hero() {
             <MapPin className="h-3 w-3" /> Sri Lanka
           </div>
 
-          <h1 className="mt-6 font-display text-5xl font-bold leading-[1.05] md:text-6xl">
+          <h1 className="mt-6 font-display text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.05]">
             Hi, I&apos;m{" "}
             <span
               className="animate-gradient-x"
@@ -85,15 +86,17 @@ export function Hero() {
               Thuwan Sajin
             </span>
           </h1>
-          <p className="mt-4 text-xl text-muted-foreground md:text-2xl">Full Stack Developer</p>
+          <p className="mt-4 text-lg sm:text-xl text-muted-foreground md:text-2xl">
+            Full Stack Developer
+          </p>
 
-          <div className="mt-4 flex h-8 items-center gap-2 font-mono text-lg">
-            <Sparkles className="h-4 w-4 text-[var(--brand-cyan)]" />
-            <span className="text-gradient">{typed}</span>
+          <div className="mt-4 flex h-8 items-center gap-2 font-mono text-sm sm:text-base md:text-lg min-w-0">
+            <Sparkles className="h-4 w-4 shrink-0 text-[var(--brand-cyan)]" />
+            <span className="text-gradient truncate">{typed}</span>
             <span className="ml-0.5 inline-block h-5 w-0.5 animate-pulse bg-foreground" />
           </div>
 
-          <p className="mt-6 max-w-xl text-muted-foreground">
+          <p className="mt-6 max-w-xl text-sm sm:text-base text-muted-foreground">
             Passionate about building scalable web applications, mobile apps, backend APIs, and
             research-driven software solutions.
           </p>
@@ -101,7 +104,7 @@ export function Hero() {
           <div className="mt-8 flex flex-wrap gap-3">
             <a
               href="#projects"
-              className="group inline-flex items-center gap-2 rounded-xl bg-gradient-brand px-5 py-3 text-sm font-medium text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-105"
+              className="group inline-flex items-center gap-2 rounded-xl bg-gradient-brand px-4 py-2.5 sm:px-5 sm:py-3 text-sm font-medium text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-105"
             >
               View Projects
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -109,13 +112,13 @@ export function Hero() {
             <a
               href={RESUME_URL}
               download="Thuwan-Sajin-Rajap-CV-2026.pdf"
-              className="inline-flex items-center gap-2 rounded-xl glass px-5 py-3 text-sm font-medium transition-colors hover:bg-white/10"
+              className="inline-flex items-center gap-2 rounded-xl glass px-4 py-2.5 sm:px-5 sm:py-3 text-sm font-medium transition-colors hover:bg-white/10"
             >
               <Download className="h-4 w-4" /> Download Resume
             </a>
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              className="inline-flex items-center gap-2 rounded-xl px-4 py-2.5 sm:px-5 sm:py-3 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
               <Mail className="h-4 w-4" /> Contact Me
             </a>
@@ -154,7 +157,7 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="relative"
+          className="relative min-w-0"
         >
           <div className="absolute -inset-4 rounded-3xl bg-gradient-brand opacity-30 blur-2xl" />
           <div className="relative overflow-hidden rounded-2xl glass-strong shadow-[var(--shadow-elegant)]">
@@ -164,7 +167,7 @@ export function Hero() {
               <span className="h-3 w-3 rounded-full bg-emerald-400/80" />
               <span className="ml-3 font-mono text-xs text-muted-foreground">profile.ts</span>
             </div>
-            <pre className="overflow-x-auto p-5 text-sm leading-relaxed">
+            <pre className="overflow-x-auto p-5 text-xs sm:text-sm leading-relaxed">
               <code className="font-mono">
                 {CODE.split("\n").map((line, i) => (
                   <motion.div
@@ -184,14 +187,18 @@ export function Hero() {
             </pre>
           </div>
 
-          <FloatingChip className="absolute -left-4 top-10 animate-float" icon="⚛" label="React" />
           <FloatingChip
-            className="absolute -right-2 top-32 animate-float [animation-delay:-2s]"
+            className="absolute left-2 md:-left-4 top-10 animate-float"
+            icon="⚛"
+            label="React"
+          />
+          <FloatingChip
+            className="absolute right-2 md:-right-2 top-32 animate-float [animation-delay:-2s]"
             icon="▲"
             label="Next.js"
           />
           <FloatingChip
-            className="absolute -bottom-4 left-12 animate-float [animation-delay:-4s]"
+            className="absolute bottom-2 md:-bottom-4 left-6 md:left-12 animate-float [animation-delay:-4s]"
             icon="∞"
             label="Full Stack"
           />
