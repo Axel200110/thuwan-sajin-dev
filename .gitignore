@@ -10,10 +10,12 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+# Vinxi/TanStack
 .output
 .vinxi
 .tanstack/**
 .nitro
+.amplify-hosting/
 *.local
 
 # Wrangler / Cloudflare
