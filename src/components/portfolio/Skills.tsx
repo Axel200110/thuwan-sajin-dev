@@ -62,7 +62,11 @@ export function Skills() {
   return (
     <section id="skills" className="relative py-24">
       <div className="mx-auto max-w-6xl px-4">
-        <SectionHeading eyebrow="Skills" title="My Tech Stack" description="Tools and technologies I use to ship modern, scalable software." />
+        <SectionHeading
+          eyebrow="Skills"
+          title="My Tech Stack"
+          description="Tools and technologies I use to ship modern, scalable software."
+        />
 
         <div className="grid gap-6 md:grid-cols-2">
           {groups.map((g, gi) => (
@@ -75,7 +79,9 @@ export function Skills() {
               className="rounded-2xl glass p-6 transition-all hover:-translate-y-1 hover:glow-ring"
             >
               <div className="mb-5 flex items-center gap-3">
-                <div className={`grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br ${g.color} text-white shadow-md`}>
+                <div
+                  className={`grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br ${g.color} text-white shadow-md`}
+                >
                   <g.icon className="h-5 w-5" />
                 </div>
                 <h3 className="font-display text-xl font-semibold">{g.title}</h3>

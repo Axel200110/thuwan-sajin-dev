@@ -2,11 +2,36 @@ import { motion } from "framer-motion";
 import { SectionHeading } from "./SectionHeading";
 
 const ITEMS = [
-  { year: "2024", title: "Started Full Stack Development", text: "Began the journey into building full stack web applications." },
-  { year: "2025", title: "Built Student Management System", text: "Delivered a complete platform with React, Node and MongoDB." },
-  { year: "2025", title: "Created GPA Calculator Mobile App", text: "Shipped a React Native app with charts and analytics." },
-  { year: "2025", title: "Developed eLearning Platform", text: "Built a PHP & MySQL platform with video lessons and quizzes." },
-  { year: "2026", title: "Built Dengue Risk Prediction System", text: "Designed an ML model for outbreak risk classification." },
+  {
+    year: "2024",
+    title: "Software Engineer Intern - Ceylon Academy",
+    text: "Built practical web solutions during a six-month internship and strengthened full-stack development skills.",
+  },
+  {
+    year: "2024",
+    title: "Student Management System",
+    text: "Developed a full-stack platform for student records, enrollment, grading, and administrative workflows.",
+  },
+  {
+    year: "2025",
+    title: "GPA Calculator Mobile App",
+    text: "Created a React Native app for GPA and CGPA calculations with a clean mobile-first experience.",
+  },
+  {
+    year: "2025",
+    title: "eLearning Platform",
+    text: "Built an online learning system with courses, quizzes, certificates, and progress tracking.",
+  },
+  {
+    year: "2025",
+    title: "Movie and Music Streaming Platforms",
+    text: "Designed responsive entertainment platforms focused on modern layouts and media-rich user flows.",
+  },
+  {
+    year: "2025",
+    title: "MCQ Learning App and Medalist Recommendation System",
+    text: "Delivered an educational mobile app and a research-based recommendation system for achievement analysis.",
+  },
 ];
 
 export function Experience() {
@@ -29,8 +54,12 @@ export function Experience() {
                   transition={{ duration: 0.5, delay: i * 0.08 }}
                   className="relative md:grid md:grid-cols-2 md:gap-10"
                 >
-                  <div className={`pl-12 md:pl-0 ${left ? "md:pr-10 md:text-right" : "md:order-2 md:pl-10"}`}>
-                    <div className="inline-flex rounded-full bg-gradient-brand px-3 py-1 text-xs font-medium text-primary-foreground">{it.year}</div>
+                  <div
+                    className={`pl-12 md:pl-0 ${left ? "md:pr-10 md:text-right" : "md:order-2 md:pl-10"}`}
+                  >
+                    <div className="inline-flex rounded-full bg-gradient-brand px-3 py-1 text-xs font-medium text-primary-foreground">
+                      {it.year}
+                    </div>
                     <h3 className="mt-2 font-display text-lg font-semibold">{it.title}</h3>
                     <p className="mt-1 text-sm text-muted-foreground">{it.text}</p>
                   </div>

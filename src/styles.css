@@ -36,10 +36,10 @@
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 }
 
+/* ─── Dark mode (default) ─────────────────────────────────────── */
 :root {
   --radius: 0.75rem;
-  /* Premium dark theme */
-  --background: oklch(0.16 0.02 265);
+  --background: oklch(0.13 0.018 265);
   --foreground: oklch(0.98 0.005 250);
   --card: oklch(0.21 0.025 265 / 60%);
   --card-foreground: oklch(0.98 0.005 250);
@@ -63,30 +63,95 @@
   --brand-purple: oklch(0.62 0.25 300);
   --brand-cyan: oklch(0.78 0.15 200);
 
-  --gradient-primary: linear-gradient(135deg, oklch(0.65 0.22 260), oklch(0.62 0.25 300), oklch(0.78 0.15 200));
-  --gradient-radial: radial-gradient(circle at 20% 20%, oklch(0.65 0.22 260 / 30%), transparent 50%),
-                     radial-gradient(circle at 80% 60%, oklch(0.62 0.25 300 / 25%), transparent 55%),
-                     radial-gradient(circle at 50% 100%, oklch(0.78 0.15 200 / 20%), transparent 60%);
+  --gradient-primary: linear-gradient(
+    135deg,
+    oklch(0.65 0.22 260),
+    oklch(0.62 0.25 300),
+    oklch(0.78 0.15 200)
+  );
   --shadow-glow: 0 0 60px -10px oklch(0.65 0.22 260 / 50%);
   --shadow-elegant: 0 20px 60px -20px oklch(0.1 0.02 265 / 80%);
+
+  --nav-active-bg: oklch(0.65 0.22 260 / 15%);
+  --nav-active-border: oklch(0.65 0.22 260 / 35%);
+
+  --toggle-bg: oklch(0.25 0.04 265);
+  --toggle-hover: oklch(0.3 0.05 265);
 }
 
-.dark { color-scheme: dark; }
+/* ─── Light mode overrides ────────────────────────────────────── */
+html.light {
+  color-scheme: light;
+  --background: oklch(0.97 0.005 250);
+  --foreground: oklch(0.15 0.02 265);
+  --card: oklch(1 0 0 / 70%);
+  --card-foreground: oklch(0.15 0.02 265);
+  --popover: oklch(0.99 0 0);
+  --popover-foreground: oklch(0.15 0.02 265);
+  --primary: oklch(0.55 0.22 255);
+  --primary-foreground: oklch(0.97 0.005 250);
+  --secondary: oklch(0.92 0.02 265);
+  --secondary-foreground: oklch(0.15 0.02 265);
+  --muted: oklch(0.93 0.01 265);
+  --muted-foreground: oklch(0.45 0.02 265);
+  --accent: oklch(0.93 0.02 265);
+  --accent-foreground: oklch(0.15 0.02 265);
+  --destructive: oklch(0.58 0.22 25);
+  --destructive-foreground: oklch(0.97 0.005 250);
+  --border: oklch(0 0 0 / 10%);
+  --input: oklch(0 0 0 / 8%);
+  --ring: oklch(0.55 0.22 255);
 
-html { color-scheme: dark; }
+  --brand-blue: oklch(0.5 0.22 260);
+  --brand-purple: oklch(0.5 0.25 300);
+  --brand-cyan: oklch(0.55 0.15 200);
 
+  --shadow-glow: 0 0 60px -10px oklch(0.55 0.22 260 / 30%);
+  --shadow-elegant: 0 20px 60px -20px oklch(0.7 0.02 265 / 40%);
+
+  --nav-active-bg: oklch(0.55 0.22 260 / 10%);
+  --nav-active-border: oklch(0.55 0.22 260 / 30%);
+
+  --toggle-bg: oklch(0.9 0.01 265);
+  --toggle-hover: oklch(0.85 0.02 265);
+}
+
+.dark {
+  color-scheme: dark;
+}
+html {
+  color-scheme: dark;
+}
+
+/* ─── Base styles ─────────────────────────────────────────────── */
 @layer base {
-  * { border-color: var(--color-border); }
+  * {
+    border-color: var(--color-border);
+  }
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+    transition:
+      background-color 0.35s ease,
+      color 0.25s ease;
   }
-  h1, h2, h3, h4, h5 { font-family: var(--font-display); letter-spacing: -0.02em; }
-  ::selection { background: oklch(0.65 0.22 260 / 40%); color: white; }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+  ::selection {
+    background: oklch(0.65 0.22 260 / 40%);
+    color: white;
+  }
 }
 
+/* ─── Utilities ───────────────────────────────────────────────── */
 @utility glass {
   background: oklch(0.22 0.03 265 / 50%);
   backdrop-filter: blur(16px) saturate(140%);
@@ -94,10 +159,20 @@ html { color-scheme: dark; }
   border: 1px solid oklch(1 0 0 / 8%);
 }
 
+html.light .glass {
+  background: oklch(1 0 0 / 60%);
+  border: 1px solid oklch(0 0 0 / 8%);
+}
+
 @utility glass-strong {
   background: oklch(0.22 0.03 265 / 75%);
   backdrop-filter: blur(20px) saturate(160%);
   border: 1px solid oklch(1 0 0 / 10%);
+}
+
+html.light .glass-strong {
+  background: oklch(1 0 0 / 80%);
+  border: 1px solid oklch(0 0 0 / 10%);
 }
 
 @utility text-gradient {
@@ -118,28 +193,153 @@ html { color-scheme: dark; }
   background-size: 48px 48px;
 }
 
-@utility glow-ring {
-  box-shadow: 0 0 0 1px oklch(1 0 0 / 8%), var(--shadow-glow);
+html.light .bg-grid {
+  background-image:
+    linear-gradient(oklch(0 0 0 / 4%) 1px, transparent 1px),
+    linear-gradient(90deg, oklch(0 0 0 / 4%) 1px, transparent 1px);
 }
 
+@utility glow-ring {
+  box-shadow:
+    0 0 0 1px oklch(1 0 0 / 8%),
+    var(--shadow-glow);
+}
+
+/* ─── Active Nav Link ─────────────────────────────────────────── */
+.nav-link {
+  position: relative;
+  overflow: visible;
+}
+
+.nav-active-bg {
+  background: var(--nav-active-bg);
+  border: 1px solid var(--nav-active-border);
+  z-index: 0;
+}
+
+.nav-link-active {
+  color: var(--foreground) !important;
+}
+
+.nav-link-active-mobile {
+  background: var(--nav-active-bg);
+  border: 1px solid var(--nav-active-border);
+  border-radius: 0.5rem;
+}
+
+/* ─── Theme toggle button ─────────────────────────────────────── */
+.theme-toggle-btn {
+  background: var(--toggle-bg);
+  color: var(--foreground);
+  border: 1px solid var(--border);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+
+.theme-toggle-btn:hover {
+  background: var(--toggle-hover);
+  transform: scale(1.08);
+}
+
+/* ─── Nav Loading Overlay ─────────────────────────────────────── */
+.nav-loader-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-loader-ripple {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--gradient-primary);
+}
+
+.nav-loader-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background: var(--gradient-primary);
+  animation: nav-bar-sweep 0.75s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  border-radius: 0 2px 2px 0;
+}
+
+@keyframes nav-bar-sweep {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left;
+    opacity: 1;
+  }
+  70% {
+    transform: scaleX(1);
+    transform-origin: left;
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(1);
+    transform-origin: left;
+    opacity: 0;
+  }
+}
+
+/* ─── Keyframes ───────────────────────────────────────────────── */
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-14px); }
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
 }
 @keyframes blob {
-  0%, 100% { transform: translate(0,0) scale(1); }
-  33% { transform: translate(30px,-40px) scale(1.1); }
-  66% { transform: translate(-25px,20px) scale(0.95); }
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -40px) scale(1.1);
+  }
+  66% {
+    transform: translate(-25px, 20px) scale(0.95);
+  }
 }
 @keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
 }
 @keyframes gradient-x {
-  0%,100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
-.animate-float { animation: float 6s ease-in-out infinite; }
-.animate-blob { animation: blob 18s ease-in-out infinite; }
-.animate-gradient-x { background-size: 200% 200%; animation: gradient-x 8s ease infinite; }
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+.animate-blob {
+  animation: blob 18s ease-in-out infinite;
+}
+.animate-gradient-x {
+  background-size: 200% 200%;
+  animation: gradient-x 8s ease infinite;
+}

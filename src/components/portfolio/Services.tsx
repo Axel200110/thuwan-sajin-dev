@@ -3,12 +3,36 @@ import { Globe, ServerCog, Smartphone, Database, BrainCircuit, Sparkles } from "
 import { SectionHeading } from "./SectionHeading";
 
 const services = [
-  { icon: Globe, title: "Web Application Development", text: "Modern, responsive apps built with React, Next.js and TypeScript." },
-  { icon: ServerCog, title: "Backend API Development", text: "Robust REST APIs in Node.js, Java Spring Boot, Go and Python." },
-  { icon: Smartphone, title: "Mobile App Development", text: "Cross-platform apps with React Native and Expo." },
-  { icon: Database, title: "Database Design", text: "Schemas, modeling, and optimization across SQL and NoSQL." },
-  { icon: BrainCircuit, title: "Machine Learning Solutions", text: "Predictive models, data pipelines and analytics." },
-  { icon: Sparkles, title: "Custom Software Development", text: "Tailored software solutions for specific problem domains." },
+  {
+    icon: Globe,
+    title: "Web Application Development",
+    text: "Modern, responsive apps built with React, Next.js and TypeScript.",
+  },
+  {
+    icon: ServerCog,
+    title: "Backend API Development",
+    text: "Robust REST APIs in Node.js, Java Spring Boot, Go and Python.",
+  },
+  {
+    icon: Smartphone,
+    title: "Mobile App Development",
+    text: "Cross-platform apps with React Native and Expo.",
+  },
+  {
+    icon: Database,
+    title: "Database Design",
+    text: "Schemas, modeling, and optimization across SQL and NoSQL.",
+  },
+  {
+    icon: BrainCircuit,
+    title: "Machine Learning Solutions",
+    text: "Predictive models, data pipelines and analytics.",
+  },
+  {
+    icon: Sparkles,
+    title: "Custom Software Development",
+    text: "Tailored software solutions for specific problem domains.",
+  },
 ];
 
 export function Services() {

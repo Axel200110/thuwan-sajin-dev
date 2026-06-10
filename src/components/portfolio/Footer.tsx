@@ -1,5 +1,9 @@
 import { Github, Linkedin, Mail, Code2 } from "lucide-react";
 
+const GITHUB_URL = "https://github.com/Axel200110";
+const LINKEDIN_URL = "https://www.linkedin.com/in/thuwan-dev/";
+const EMAIL_URL = "mailto:thuwanrajap076@gmail.com";
+
 export function Footer() {
   return (
     <footer className="border-t border-white/5 py-10">
@@ -17,13 +21,29 @@ export function Footer() {
           </p>
 
           <div className="flex items-center gap-3">
-            <a href="#" aria-label="GitHub" className="rounded-lg glass p-2 transition-colors hover:bg-white/10">
+            <a
+              href={GITHUB_URL}
+              aria-label="GitHub"
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-lg glass p-2 transition-colors hover:bg-white/10"
+            >
               <Github className="h-4 w-4" />
             </a>
-            <a href="#" aria-label="LinkedIn" className="rounded-lg glass p-2 transition-colors hover:bg-white/10">
+            <a
+              href={LINKEDIN_URL}
+              aria-label="LinkedIn"
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-lg glass p-2 transition-colors hover:bg-white/10"
+            >
               <Linkedin className="h-4 w-4" />
             </a>
-            <a href="#" aria-label="Email" className="rounded-lg glass p-2 transition-colors hover:bg-white/10">
+            <a
+              href={EMAIL_URL}
+              aria-label="Email"
+              className="rounded-lg glass p-2 transition-colors hover:bg-white/10"
+            >
               <Mail className="h-4 w-4" />
             </a>
           </div>

@@ -2,19 +2,24 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Download, Mail, Github, Linkedin, MapPin, Sparkles } from "lucide-react";
 
+const GITHUB_URL = "https://github.com/Axel200110";
+const LINKEDIN_URL = "https://www.linkedin.com/in/thuwan-dev/";
+const EMAIL_URL = "mailto:thuwanrajap076@gmail.com";
+
 const ROLES = [
-  "React Developer",
-  "Next.js Developer",
-  "Java Developer",
-  "Python Developer",
-  "PHP Developer",
-  "Go Developer",
+  "Full Stack Developer",
+  "Mobile App Developer",
+  "Backend Developer",
+  "Research Project Builder",
 ];
+
+const RESUME_URL = "/Thuwan-Sajin-Rajap-CV-2026.pdf";
 
 function useTyping(words: string[], typeMs = 80, holdMs = 1400) {
   const [i, setI] = useState(0);
   const [text, setText] = useState("");
   const [deleting, setDeleting] = useState(false);
+
   useEffect(() => {
     const word = words[i % words.length];
     if (!deleting && text === word) {
@@ -27,23 +32,21 @@ function useTyping(words: string[], typeMs = 80, holdMs = 1400) {
       return;
     }
     const t = setTimeout(
-      () =>
-        setText(
-          deleting ? word.slice(0, text.length - 1) : word.slice(0, text.length + 1),
-        ),
+      () => setText(deleting ? word.slice(0, text.length - 1) : word.slice(0, text.length + 1)),
       deleting ? typeMs / 2 : typeMs,
     );
     return () => clearTimeout(t);
   }, [text, deleting, i, words, typeMs, holdMs]);
+
   return text;
 }
 
-const CODE = `const dev = {
+const CODE = `const profile = {
   name: "Thuwan Sajin",
-  role: "Full Stack Developer",
-  location: "Sri Lanka",
-  stack: ["React", "Next.js", "Node", "Go"],
-  loves: ["clean code", "scalable APIs"],
+  email: "thuwanrajap076@gmail.com",
+  country: "Sri Lanka",
+  phone: "0789479949",
+  focus: ["React", "Next.js", "Node.js", "React Native"],
   open_to_work: true,
 };`;
 
@@ -68,7 +71,19 @@ export function Hero() {
           </div>
 
           <h1 className="mt-6 font-display text-5xl font-bold leading-[1.05] md:text-6xl">
-            Hi, I'm <span className="text-gradient animate-gradient-x bg-gradient-brand">Thuwan Sajin</span>
+            Hi, I&apos;m{" "}
+            <span
+              className="animate-gradient-x"
+              style={{
+                background: "var(--gradient-primary)",
+                backgroundSize: "200% 200%",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
+              Thuwan Sajin
+            </span>
           </h1>
           <p className="mt-4 text-xl text-muted-foreground md:text-2xl">Full Stack Developer</p>
 
@@ -79,8 +94,8 @@ export function Hero() {
           </div>
 
           <p className="mt-6 max-w-xl text-muted-foreground">
-            I build scalable web applications, backend systems, machine learning solutions,
-            and mobile applications.
+            Passionate about building scalable web applications, mobile apps, backend APIs, and
+            research-driven software solutions.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
@@ -92,7 +107,8 @@ export function Hero() {
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </a>
             <a
-              href="#"
+              href={RESUME_URL}
+              download="Thuwan-Sajin-Rajap-CV-2026.pdf"
               className="inline-flex items-center gap-2 rounded-xl glass px-5 py-3 text-sm font-medium transition-colors hover:bg-white/10"
             >
               <Download className="h-4 w-4" /> Download Resume
@@ -106,13 +122,29 @@ export function Hero() {
           </div>
 
           <div className="mt-8 flex items-center gap-3">
-            <a href="#" className="rounded-lg glass p-2.5 transition-colors hover:bg-white/10" aria-label="GitHub">
+            <a
+              href={GITHUB_URL}
+              className="rounded-lg glass p-2.5 transition-colors hover:bg-white/10"
+              aria-label="GitHub"
+              target="_blank"
+              rel="noreferrer"
+            >
               <Github className="h-4 w-4" />
             </a>
-            <a href="#" className="rounded-lg glass p-2.5 transition-colors hover:bg-white/10" aria-label="LinkedIn">
+            <a
+              href={LINKEDIN_URL}
+              className="rounded-lg glass p-2.5 transition-colors hover:bg-white/10"
+              aria-label="LinkedIn"
+              target="_blank"
+              rel="noreferrer"
+            >
               <Linkedin className="h-4 w-4" />
             </a>
-            <a href="#" className="rounded-lg glass p-2.5 transition-colors hover:bg-white/10" aria-label="Email">
+            <a
+              href={EMAIL_URL}
+              className="rounded-lg glass p-2.5 transition-colors hover:bg-white/10"
+              aria-label="Email"
+            >
               <Mail className="h-4 w-4" />
             </a>
           </div>
@@ -130,7 +162,7 @@ export function Hero() {
               <span className="h-3 w-3 rounded-full bg-red-400/80" />
               <span className="h-3 w-3 rounded-full bg-yellow-400/80" />
               <span className="h-3 w-3 rounded-full bg-emerald-400/80" />
-              <span className="ml-3 font-mono text-xs text-muted-foreground">developer.ts</span>
+              <span className="ml-3 font-mono text-xs text-muted-foreground">profile.ts</span>
             </div>
             <pre className="overflow-x-auto p-5 text-sm leading-relaxed">
               <code className="font-mono">
@@ -153,8 +185,16 @@ export function Hero() {
           </div>
 
           <FloatingChip className="absolute -left-4 top-10 animate-float" icon="⚛" label="React" />
-          <FloatingChip className="absolute -right-2 top-32 animate-float [animation-delay:-2s]" icon="◆" label="Next.js" />
-          <FloatingChip className="absolute -bottom-4 left-12 animate-float [animation-delay:-4s]" icon="🐹" label="Go" />
+          <FloatingChip
+            className="absolute -right-2 top-32 animate-float [animation-delay:-2s]"
+            icon="▲"
+            label="Next.js"
+          />
+          <FloatingChip
+            className="absolute -bottom-4 left-12 animate-float [animation-delay:-4s]"
+            icon="∞"
+            label="Full Stack"
+          />
         </motion.div>
       </div>
     </section>
@@ -169,9 +209,19 @@ function Highlighted({ line }: { line: string }) {
   return <span dangerouslySetInnerHTML={{ __html: colored }} />;
 }
 
-function FloatingChip({ className, icon, label }: { className?: string; icon: string; label: string }) {
+function FloatingChip({
+  className,
+  icon,
+  label,
+}: {
+  className?: string;
+  icon: string;
+  label: string;
+}) {
   return (
-    <div className={`glass-strong flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium shadow-lg ${className ?? ""}`}>
+    <div
+      className={`glass-strong flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium shadow-lg ${className ?? ""}`}
+    >
       <span>{icon}</span>
       {label}
     </div>

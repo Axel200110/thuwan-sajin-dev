@@ -8,7 +8,7 @@ type Project = {
   description: string;
   tech: string[];
   features: string[];
-  category: "Web" | "Mobile" | "ML";
+  category: "Web" | "Mobile" | "Research";
   gradient: string;
   emoji: string;
 };
@@ -18,23 +18,35 @@ const PROJECTS: Project[] = [
     title: "Student Management System",
     description: "Full-stack platform for managing student records, enrollment, and grading.",
     tech: ["React", "Node.js", "MongoDB"],
-    features: ["Student registration", "Course enrollment", "Grade management", "Dashboard analytics"],
+    features: [
+      "Student registration",
+      "Course enrollment",
+      "Grade management",
+      "Dashboard analytics",
+    ],
     category: "Web",
     gradient: "from-sky-500/40 via-blue-500/30 to-indigo-500/40",
     emoji: "🎓",
   },
   {
     title: "GPA Calculator Mobile App",
-    description: "Cross-platform mobile app for students to compute GPA & CGPA with insights.",
+    description: "Cross-platform mobile app for students to compute GPA and CGPA with insights.",
     tech: ["React Native", "Expo"],
-    features: ["GPA calculation", "CGPA calculation", "Degree classification", "Dark mode", "Charts & analytics"],
+    features: [
+      "GPA calculation",
+      "CGPA calculation",
+      "Degree classification",
+      "Dark mode",
+      "Charts and analytics",
+    ],
     category: "Mobile",
     gradient: "from-fuchsia-500/40 via-purple-500/30 to-violet-500/40",
     emoji: "📱",
   },
   {
     title: "eLearning Platform",
-    description: "Online learning system with courses, quizzes, certificates and progress tracking.",
+    description:
+      "Online learning system with courses, quizzes, certificates and progress tracking.",
     tech: ["PHP", "MySQL"],
     features: ["Video lessons", "Quiz system", "Certificates", "Progress tracking"],
     category: "Web",
@@ -42,17 +54,50 @@ const PROJECTS: Project[] = [
     emoji: "📚",
   },
   {
-    title: "Dengue Risk Prediction System",
-    description: "ML system that predicts dengue outbreak risk from weather and historical data.",
-    tech: ["Python", "Machine Learning"],
-    features: ["Risk classification", "Weather integration", "Predictive analytics", "Data visualization"],
-    category: "ML",
+    title: "Movie and Music Streaming Platforms",
+    description: "Modern streaming experiences built for web and mobile with responsive UIs.",
+    tech: ["Next.js", "Supabase", "React Native", "Expo"],
+    features: [
+      "Responsive playback UI",
+      "Cross-platform experience",
+      "Modern navigation",
+      "Media-focused layouts",
+    ],
+    category: "Web",
     gradient: "from-rose-500/40 via-orange-500/30 to-amber-500/40",
-    emoji: "🦟",
+    emoji: "🎬",
+  },
+  {
+    title: "MCQ Learning App",
+    description: "Interactive educational mobile app for quiz-based learning and practice.",
+    tech: ["React Native", "Expo"],
+    features: [
+      "Interactive MCQs",
+      "Mobile-friendly UI",
+      "Learner-focused flows",
+      "Simple navigation",
+    ],
+    category: "Mobile",
+    gradient: "from-cyan-500/40 via-sky-500/30 to-blue-500/40",
+    emoji: "🧠",
+  },
+  {
+    title: "Medalist Recommendation System",
+    description: "Research project for achievement-based event evaluation and recommendations.",
+    tech: ["Python", "Data Analysis"],
+    features: [
+      "Recommendation logic",
+      "Research-driven workflow",
+      "Automated evaluation",
+      "Result-focused output",
+    ],
+    category: "Research",
+    gradient: "from-violet-500/40 via-fuchsia-500/30 to-pink-500/40",
+    emoji: "🏅",
   },
 ];
 
-const FILTERS = ["All", "Web", "Mobile", "ML"] as const;
+const FILTERS = ["All", "Web", "Mobile", "Research"] as const;
 
 export function Projects() {
   const [filter, setFilter] = useState<(typeof FILTERS)[number]>("All");
@@ -64,7 +109,11 @@ export function Projects() {
   return (
     <section id="projects" className="relative py-24">
       <div className="mx-auto max-w-6xl px-4">
-        <SectionHeading eyebrow="Projects" title="Featured Work" description="A selection of projects across web, mobile, and machine learning." />
+        <SectionHeading
+          eyebrow="Projects"
+          title="Featured Work"
+          description="A selection of projects across web, mobile, and research work."
+        />
 
         <div className="mb-8 flex flex-wrap gap-2">
           {FILTERS.map((f) => (
@@ -94,7 +143,9 @@ export function Projects() {
                 transition={{ duration: 0.4, delay: i * 0.06 }}
                 className="group relative overflow-hidden rounded-2xl glass transition-all hover:-translate-y-1 hover:glow-ring"
               >
-                <div className={`relative aspect-[16/9] overflow-hidden bg-gradient-to-br ${p.gradient}`}>
+                <div
+                  className={`relative aspect-[16/9] overflow-hidden bg-gradient-to-br ${p.gradient}`}
+                >
                   <div className="absolute inset-0 bg-grid opacity-50" />
                   <div className="absolute inset-0 grid place-items-center text-6xl opacity-90 transition-transform duration-700 group-hover:scale-110">
                     {p.emoji}
@@ -118,17 +169,26 @@ export function Projects() {
 
                   <div className="mt-5 flex flex-wrap gap-1.5">
                     {p.tech.map((t) => (
-                      <span key={t} className="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-xs">
+                      <span
+                        key={t}
+                        className="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-xs"
+                      >
                         {t}
                       </span>
                     ))}
                   </div>
 
                   <div className="mt-5 flex gap-2">
-                    <a href="#" className="inline-flex items-center gap-1.5 rounded-lg glass px-3 py-1.5 text-xs transition-colors hover:bg-white/10">
+                    <a
+                      href="#"
+                      className="inline-flex items-center gap-1.5 rounded-lg glass px-3 py-1.5 text-xs transition-colors hover:bg-white/10"
+                    >
                       <Github className="h-3.5 w-3.5" /> GitHub
                     </a>
-                    <a href="#" className="inline-flex items-center gap-1.5 rounded-lg bg-gradient-brand px-3 py-1.5 text-xs text-primary-foreground transition-transform hover:scale-105">
+                    <a
+                      href="#"
+                      className="inline-flex items-center gap-1.5 rounded-lg bg-gradient-brand px-3 py-1.5 text-xs text-primary-foreground transition-transform hover:scale-105"
+                    >
                       <ExternalLink className="h-3.5 w-3.5" /> Live Demo
                     </a>
                   </div>

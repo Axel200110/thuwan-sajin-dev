@@ -16,8 +16,7 @@ import { SectionHeading } from "./SectionHeading";
 const GITHUB_URL = "https://github.com/Axel200110";
 const LINKEDIN_URL = "https://www.linkedin.com/in/thuwan-dev/";
 const EMAIL_URL = "mailto:thuwanrajap076@gmail.com";
-const WEB3FORMS_KEY =
-  import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || "YOUR_ACCESS_KEY_HERE";
+const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || "YOUR_ACCESS_KEY_HERE";
 
 export function Contact() {
   const [sending, setSending] = useState(false);
@@ -68,24 +67,9 @@ export function Contact() {
             className="space-y-4 md:col-span-2"
           >
             <InfoRow icon={MapPin} label="Location" value="Sri Lanka" />
-            <InfoRow
-              icon={Mail}
-              label="Email"
-              value="thuwanrajap076@gmail.com"
-              href={EMAIL_URL}
-            />
-            <InfoRow
-              icon={Phone}
-              label="Phone"
-              value="0789479949"
-              href="tel:+94789479949"
-            />
-            <InfoRow
-              icon={Github}
-              label="GitHub"
-              value="github.com/Axel200110"
-              href={GITHUB_URL}
-            />
+            <InfoRow icon={Mail} label="Email" value="thuwanrajap076@gmail.com" href={EMAIL_URL} />
+            <InfoRow icon={Phone} label="Phone" value="0789479949" href="tel:+94789479949" />
+            <InfoRow icon={Github} label="GitHub" value="github.com/Axel200110" href={GITHUB_URL} />
             <InfoRow
               icon={Linkedin}
               label="LinkedIn"
@@ -141,8 +125,7 @@ export function Contact() {
                 </>
               ) : sent ? (
                 <>
-                  <CheckCircle2 className="h-4 w-4 text-emerald-400" /> Sent
-                  successfully!
+                  <CheckCircle2 className="h-4 w-4 text-emerald-400" /> Sent successfully!
                 </>
               ) : (
                 <>
@@ -157,21 +140,10 @@ export function Contact() {
   );
 }
 
-function Field({
-  label,
-  name,
-  type = "text",
-}: {
-  label: string;
-  name: string;
-  type?: string;
-}) {
+function Field({ label, name, type = "text" }: { label: string; name: string; type?: string }) {
   return (
     <div>
-      <label
-        className="mb-1.5 block text-xs font-medium text-muted-foreground"
-        htmlFor={name}
-      >
+      <label className="mb-1.5 block text-xs font-medium text-muted-foreground" htmlFor={name}>
         {label}
       </label>
       <input
@@ -203,9 +175,7 @@ function InfoRow({
         <Icon className="h-5 w-5" />
       </div>
       <div>
-        <div className="text-xs uppercase tracking-wide text-muted-foreground">
-          {label}
-        </div>
+        <div className="text-xs uppercase tracking-wide text-muted-foreground">{label}</div>
         <div className="text-sm font-medium">{value}</div>
       </div>
     </div>

@@ -2,11 +2,37 @@ import { motion } from "framer-motion";
 import { Github, Star, GitFork, Code2 } from "lucide-react";
 import { SectionHeading } from "./SectionHeading";
 
+const GITHUB_URL = "https://github.com/Axel200110";
+
 const REPOS = [
-  { name: "student-management-system", desc: "React + Node + MongoDB platform.", lang: "TypeScript", stars: 24, forks: 6 },
-  { name: "gpa-calculator-app", desc: "React Native GPA calculator with charts.", lang: "TypeScript", stars: 18, forks: 3 },
-  { name: "elearning-platform", desc: "PHP & MySQL learning platform.", lang: "PHP", stars: 12, forks: 2 },
-  { name: "dengue-risk-ml", desc: "Python ML model for dengue prediction.", lang: "Python", stars: 31, forks: 8 },
+  {
+    name: "student-management-system",
+    desc: "React + Node + MongoDB platform.",
+    lang: "TypeScript",
+    stars: 24,
+    forks: 6,
+  },
+  {
+    name: "gpa-calculator-app",
+    desc: "React Native GPA calculator with charts.",
+    lang: "TypeScript",
+    stars: 18,
+    forks: 3,
+  },
+  {
+    name: "elearning-platform",
+    desc: "PHP and MySQL learning platform.",
+    lang: "PHP",
+    stars: 12,
+    forks: 2,
+  },
+  {
+    name: "medalist-recommendation-system",
+    desc: "Python recommendation system for achievement analysis.",
+    lang: "Python",
+    stars: 31,
+    forks: 8,
+  },
 ];
 
 const LANGS = [
@@ -36,7 +62,7 @@ export function GithubSection() {
                 <Github className="h-6 w-6" />
               </div>
               <div>
-                <h3 className="font-display text-lg font-semibold">@thuwansajin</h3>
+                <h3 className="font-display text-lg font-semibold">@Axel200110</h3>
                 <p className="text-xs text-muted-foreground">Full Stack Developer</p>
               </div>
             </div>
@@ -45,7 +71,12 @@ export function GithubSection() {
               <Stat label="Stars" value="120+" />
               <Stat label="Followers" value="80+" />
             </div>
-            <a href="#" className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-brand px-4 py-2 text-sm text-primary-foreground transition-transform hover:scale-[1.02]">
+            <a
+              href={GITHUB_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-brand px-4 py-2 text-sm text-primary-foreground transition-transform hover:scale-[1.02]"
+            >
               <Github className="h-4 w-4" /> View profile
             </a>
           </motion.div>
@@ -69,7 +100,8 @@ export function GithubSection() {
                     key={i}
                     className="aspect-square rounded-[3px]"
                     style={{
-                      background: intensity === 0 ? "oklch(1 0 0 / 6%)" : `oklch(0.65 0.22 260 / ${opacity})`,
+                      background:
+                        intensity === 0 ? "oklch(1 0 0 / 6%)" : `oklch(0.65 0.22 260 / ${opacity})`,
                     }}
                   />
                 );
@@ -112,8 +144,12 @@ export function GithubSection() {
               <p className="mt-1 text-sm text-muted-foreground">{r.desc}</p>
               <div className="mt-3 flex items-center gap-4 text-xs text-muted-foreground">
                 <span>● {r.lang}</span>
-                <span className="inline-flex items-center gap-1"><Star className="h-3 w-3" /> {r.stars}</span>
-                <span className="inline-flex items-center gap-1"><GitFork className="h-3 w-3" /> {r.forks}</span>
+                <span className="inline-flex items-center gap-1">
+                  <Star className="h-3 w-3" /> {r.stars}
+                </span>
+                <span className="inline-flex items-center gap-1">
+                  <GitFork className="h-3 w-3" /> {r.forks}
+                </span>
               </div>
             </motion.a>
           ))}
