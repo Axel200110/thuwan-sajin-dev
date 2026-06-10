@@ -102,7 +102,7 @@ export function Contact() {
                 name="message"
                 required
                 rows={5}
-                className="w-full resize-none rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm outline-none transition-colors focus:border-[var(--brand-blue)] focus:bg-white/10 text-foreground"
+                className="w-full resize-none rounded-xl border border-black/10 dark:border-white/10 bg-black/[0.03] dark:bg-white/5 px-4 py-3 text-sm text-foreground dark:text-white placeholder:text-muted-foreground outline-none transition-colors focus:border-[var(--brand-blue)] focus:bg-black/[0.06] dark:focus:bg-white/10"
                 placeholder="Tell me about your project..."
               />
             </div>
@@ -151,7 +151,7 @@ function Field({ label, name, type = "text" }: { label: string; name: string; ty
         name={name}
         type={type}
         required
-        className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm outline-none transition-colors focus:border-[var(--brand-blue)] focus:bg-white/10 text-foreground"
+        className="w-full rounded-xl border border-black/10 dark:border-white/10 bg-black/[0.03] dark:bg-white/5 px-4 py-3 text-sm text-foreground dark:text-white placeholder:text-muted-foreground outline-none transition-colors focus:border-[var(--brand-blue)] focus:bg-black/[0.06] dark:focus:bg-white/10"
         placeholder={label}
       />
     </div>
