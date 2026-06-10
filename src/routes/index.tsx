@@ -8,20 +8,20 @@ import { Projects } from "@/components/portfolio/Projects";
 import { Experience } from "@/components/portfolio/Experience";
 import { Services } from "@/components/portfolio/Services";
 import { GithubSection } from "@/components/portfolio/GithubSection";
-import { Contact } from "@/components/portfolio/Contact";
+import { ContactForm } from "@/components/portfolio/ContactForm";
 import { Footer } from "@/components/portfolio/Footer";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Thuwan Sajin — Full Stack Developer" },
+      { title: "Thuwan Sajin - Full Stack Developer" },
       {
         name: "description",
         content:
-          "Thuwan Sajin is a Full Stack Developer from Sri Lanka building scalable web apps, mobile apps, APIs and ML solutions with React, Next.js, Node, Java, Python and Go.",
+          "Thuwan Sajin is a Full Stack Developer from Sri Lanka building scalable web apps, mobile apps, APIs and research-driven software solutions with React, Next.js, Node, Java, Python and Go.",
       },
-      { property: "og:title", content: "Thuwan Sajin — Full Stack Developer" },
-      { property: "og:description", content: "Scalable web, mobile, API and ML solutions." },
+      { property: "og:title", content: "Thuwan Sajin - Full Stack Developer" },
+      { property: "og:description", content: "Scalable web, mobile, API and research-driven software solutions." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -52,7 +52,7 @@ function Index() {
         <Experience />
         <Services />
         <GithubSection />
-        <Contact />
+        <ContactForm />
       </main>
       <Footer />
     </div>

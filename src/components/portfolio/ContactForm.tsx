@@ -10,7 +10,7 @@ const EMAIL_URL = "mailto:thuwanrajap076@gmail.com";
 // We'll read the access key from Vite's env variables, or default to a reminder string
 const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || "YOUR_ACCESS_KEY_HERE";
 
-export function Contact() {
+export function ContactForm() {
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
   const [error, setError] = useState<string | null>(null);
