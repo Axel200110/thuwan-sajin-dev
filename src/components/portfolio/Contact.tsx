@@ -25,10 +25,11 @@ export function Contact() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const form = e.currentTarget;
     setSending(true);
     setSent(false);
     setError(null);
-    const formData = new FormData(e.currentTarget);
+    const formData = new FormData(form);
     formData.append("access_key", WEB3FORMS_KEY);
     formData.append("from_name", "Portfolio Contact Form");
     try {
@@ -39,7 +40,7 @@ export function Contact() {
       const data = await res.json();
       if (data.success) {
         setSent(true);
-        e.currentTarget.reset();
+        form.reset();
         setTimeout(() => setSent(false), 5000);
       } else {
         setError(data.message || "Something went wrong. Please try again.");
