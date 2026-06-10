@@ -130,16 +130,24 @@ function InfoPill({
   href?: string;
 }) {
   const content = (
-    <div className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3">
-      <div className="grid h-10 w-10 place-items-center rounded-lg bg-gradient-brand text-primary-foreground">
+    <div className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 min-w-0">
+      <div className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-gradient-brand text-primary-foreground">
         <Icon className="h-4 w-4" />
       </div>
-      <div>
+      <div className="min-w-0 flex-1">
         <div className="text-[10px] uppercase tracking-wide text-muted-foreground">{label}</div>
-        <div className="text-sm font-medium">{value}</div>
+        <div className="text-sm font-medium truncate" title={value}>
+          {value}
+        </div>
       </div>
     </div>
   );
 
-  return href ? <a href={href}>{content}</a> : content;
+  return href ? (
+    <a href={href} className="min-w-0 block">
+      {content}
+    </a>
+  ) : (
+    content
+  );
 }
