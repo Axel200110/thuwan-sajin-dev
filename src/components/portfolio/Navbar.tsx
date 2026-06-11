@@ -193,7 +193,7 @@ export function Navbar() {
                       exit={{ rotate: -90, opacity: 0, scale: 0.5 }}
                       transition={{ duration: 0.22 }}
                     >
-                      <Sun className="h-4 w-4 text-yellow-400" />
+                      <Sun className="h-4 w-4 text-amber-600" />
                     </motion.span>
                   )}
                 </AnimatePresence>
@@ -234,7 +234,7 @@ export function Navbar() {
                       exit={{ rotate: -90, opacity: 0 }}
                       transition={{ duration: 0.2 }}
                     >
-                      <Sun className="h-4 w-4 text-yellow-400" />
+                      <Sun className="h-4 w-4 text-amber-600" />
                     </motion.span>
                   )}
                 </AnimatePresence>
